@@ -30,13 +30,13 @@ const server = http.createServer((request, response) => {
     response.writeHead(200, { "Content-Type": "text/html"})
     response.end(data)
   })
-  
+ /* 
   process.on("uncaughtException", (error) => {
     process.exit(1)
     response.writeHead(404)
     response.end("Page Not Found")
   })
-
+  */
 })
 
 server.listen(PORT, () => console.log(`server is running on ${PORT}`))
