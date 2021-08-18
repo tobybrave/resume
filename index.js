@@ -14,14 +14,14 @@ const server = http.createServer((request, response) => {
       .pipe(response)
   }
   
-  if (request.method === "POST" && request.url === "/sendMessage") {
+	  else if (request.method === "POST" && request.url === "/sendMessage") {
     request.on("data", async (data) => {
       const details = JSON.parse(data.toString())
       await sendMail(details).catch(console.error)
       return
     })
   }
-  
+  else { 
   fs.readFile(`${__dirname}/ui/index.html`, "utf-8", (error, data) => {
     if (error) {
       response.writeHead(500)
@@ -31,16 +31,10 @@ const server = http.createServer((request, response) => {
     response.writeHead(200, { "Content-Type": "text/html"})
     response.end(data)
   })
+  }
   } catch (error) {
     console.error(error)
   }
- /* 
-  process.on("uncaughtException", (error) => {
-    process.exit(1)
-    response.writeHead(404)
-    response.end("Page Not Found")
-  })
-  */
 })
 
 server.listen(PORT, () => console.log(`server is running on ${PORT}`))
