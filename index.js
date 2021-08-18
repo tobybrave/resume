@@ -6,6 +6,8 @@ const sendMail = require("./services/mailer")
 const PORT = process.env.PORT
 
 const server = http.createServer((request, response) => {
+  request.on(error, (error) => console.error(error))
+
   if (request.url.match(/.css$/) || request.url.match(/.js$/)) {
     const file = path.join(__dirname, "ui", request.url)
     
