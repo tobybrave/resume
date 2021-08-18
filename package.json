@@ -1,0 +1,22 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "resumé with contact form",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint . --fix",
+    "deploy": "git push heroku main",
+    "prod:logs": "heroku logs -t"
+
+  },
+  "author": "@tobybrave",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "nodemailer": "^4.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
+}
