@@ -6,8 +6,7 @@ const sendMail = require("./services/mailer")
 const PORT = process.env.PORT
 
 const server = http.createServer((request, response) => {
-  request.on(error, (error) => console.error(error))
-
+  try {
   if (request.url.match(/.css$/) || request.url.match(/.js$/)) {
     const file = path.join(__dirname, "ui", request.url)
     
@@ -32,6 +31,9 @@ const server = http.createServer((request, response) => {
     response.writeHead(200, { "Content-Type": "text/html"})
     response.end(data)
   })
+  } catch (error) {
+    console.error(error)
+  }
  /* 
   process.on("uncaughtException", (error) => {
     process.exit(1)
