@@ -18,7 +18,6 @@ const server = http.createServer((request, response) => {
     request.on("data", async (data) => {
       const details = JSON.parse(data.toString())
       await sendMail(details).catch(console.error)
-      return
     })
   }
   else { 
