@@ -1,3 +1,4 @@
+require('dotenv').config()
 const nodemailer = require("nodemailer")
 const { SMTP_HOST, SMTP_PORT, SMTP_USERNAME, SMTP_PASSWORD, CLIENT } = process.env
 

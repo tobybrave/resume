@@ -32,7 +32,7 @@ const server = http.createServer((request, response) => {
   })
   
   process.on("uncaughtException", (error) => {
-    console.error(error)
+    process.exit(1)
     response.writeHead(404)
     response.end("Page Not Found")
   })
